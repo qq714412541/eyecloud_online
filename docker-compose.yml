@@ -1,0 +1,50 @@
+version: '2.4'
+services:
+
+    eye-celery:
+        image: eye-celery
+        runtime: nvidia
+        depends_on:
+            - 'eye-redis'
+        network_mode: 'host'
+        volumes:
+            - '.:/app'
+            - '/tmp:/tmp'
+        restart: unless-stopped
+        command: su -m myuser -c "celery worker -A tasks.celery_config -l info -c 1"
+
+    eye-redis:
+        image: eye-redis
+        network_mode: 'host'
+        env_file: .env
+        volumes:
+            - '.:/app'
+            - '/tmp:/tmp'
+        restart: unless-stopped
+        command: redis-server --appendonly yes
+
+    eye-server_5000:
+        image: eye-server
+        runtime: nvidia
+        depends_on:
+            - 'eye-celery'
+        network_mode: 'host'
+        env_file: .env
+        volumes:
+            - '.:/app'
+            - '/tmp:/tmp'
+        restart: unless-stopped
+        command: python tornado_server.py --port=5000 --log_file_prefix=./logs/5000.log --log_rotate_mode=time --log_rotate_when=H --log_rotate_interval=1
+
+    eye-server_5001:
+        image: eye-server
+        runtime: nvidia
+        depends_on:
+            - 'eye-celery'
+        network_mode: 'host'
+        env_file: .env
+        volumes:
+            - '.:/app'
+            - '/tmp:/tmp'
+        restart: unless-stopped
+        command: python tornado_server.py --port=5001 --log_file_prefix=./logs/5001.log --log_rotate_mode=time --log_rotate_when=H --log_rotate_interval=1

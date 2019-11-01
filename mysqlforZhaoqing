@@ -1,0 +1,19 @@
+
+create table zhaoqing(
+appid varchar(20),
+appkey varchar(128),
+examid varchar(128) not null primary key,
+sickname varchar(10),
+sickage varchar(10),
+sicksex varchar(10),
+sicksource varchar(200),
+notestr varchar(500),
+time1 varchar(30),
+time2 varchar(30),
+status int(10),
+data_json blob(4096),
+
+) character set = utf8;
+
+#time1 :parameter from zhaoqing
+#time2 :parameter from algorithm server

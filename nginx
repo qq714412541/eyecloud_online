@@ -1,0 +1,89 @@
+user www www;
+worker_processes 8;
+
+events { 
+    multi_accept on;
+
+    worker_connections 8192; 
+
+ }
+
+
+
+http {
+
+    add_header X-Frame-Options SAMEORIGIN;
+
+    include mime.types; 
+
+    default_type application/octet-stream;
+
+    sendfile on;
+     
+
+    keepalive_timeout 75;
+
+
+
+upstream mysvr { 
+
+    server 172.18.4.236:5000;
+
+    server 172.18.4.235:5000;
+
+}
+
+upstream mysvr2 { 
+
+    server 172.18.8.139:5000;
+
+}
+
+
+
+server { 
+
+    listen 22222;
+
+    server_name localhost;
+
+
+
+location / { 
+     
+    proxy_pass  http://mysvr;
+
+    
+
+    if ($request_method !~ ^(GET|POST)$){
+
+          return 444;
+
+}
+    
+
+                }     
+
+location /report { 
+     
+    proxy_pass  http://mysvr2;
+
+    
+
+    if ($request_method !~ ^(GET|POST)$){
+
+          return 444;
+
+}
+    
+
+                }   
+   
+
+ } 
+
+
+
+
+
+}

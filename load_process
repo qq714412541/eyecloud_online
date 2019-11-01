@@ -1,0 +1,42 @@
+#服务器1： /home/  
+export ENV_PORT=3  &&  export C_FORCE_ROOT="true"  &&  export JOBLIB_MULTIPROCESSING=0  &&  nohup celery worker -A tasks.celery_config -l info -c 1  1>/home/data/yuanz/celery/outputlog 2>/home/data/yuanz/celery/errlog &
+
+nohup python3 tornado_server.py --port=5000 --log_file_prefix=./logs/5000.log --log_rotate_mode=time --log_rotate_when=H --log_rotate_interval=1  1>/home/data/yuanz/tornado/outputlog 2>/home/data/yuanz/tornado/errlog &
+
+#服务器2为： /root/
+export ENV_PORT=3  &&  export C_FORCE_ROOT="true"  &&  export JOBLIB_MULTIPROCESSING=0  &&  nohup celery worker -A tasks.celery_config -l info -c 1  1>/root/data/yuanz/celery/outputlog 2>/root/data/yuanz/celery/errlog &    
+
+nohup python3 tornado_server.py --port=5000 --log_file_prefix=./logs/5000.log --log_rotate_mode=time --log_rotate_when=H --log_rotate_interval=1  1>/root/data/yuanz/tornado/outputlog 2>/root/data/yuanz/tornado/errlog &
+##（ENV_PORT为环境变量，需要输入对应的GPU个数的次数）
+
+
+##
+##
+#服务器1： /home/
+[root@localhost home]# export ENV_PORT=0  &&  export C_FORCE_ROOT="true"  &&  export JOBLIB_MULTIPROCESSING=0  &&  nohup celery worker -A tasks.celery_config -l info -c 1  1>/home/data/yuanz/celery/outputlog 2>/home/data/yuanz/celery/errlog &
+[1] 22905
+[root@localhost home]# export ENV_PORT=1  &&  export C_FORCE_ROOT="true"  &&  export JOBLIB_MULTIPROCESSING=0  &&  nohup celery worker -A tasks.celery_config -l info -c 1  1>/home/data/yuanz/celery/outputlog 2>/home/data/yuanz/celery/errlog &
+[2] 22987
+[root@localhost home]# export ENV_PORT=2  &&  export C_FORCE_ROOT="true"  &&  export JOBLIB_MULTIPROCESSING=0  &&  nohup celery worker -A tasks.celery_config -l info -c 1  1>/home/data/yuanz/celery/outputlog 2>/home/data/yuanz/celery/errlog &
+[3] 23074
+[root@localhost home]# export ENV_PORT=3  &&  export C_FORCE_ROOT="true"  &&  export JOBLIB_MULTIPROCESSING=0  &&  nohup celery worker -A tasks.celery_config -l info -c 1  1>/home/data/yuanz/celery/outputlog 2>/home/data/yuanz/celery/errlog &
+[4] 23172
+[root@localhost home]# nohup python3 tornado_server.py --port=5000 --log_file_prefix=./logs/5000.log --log_rotate_mode=time --log_rotate_when=H --log_rotate_interval=1  1>/home/data/yuanz/tornado/outputlog 2>/home/data/yuanz/tornado/errlog &
+[5] 23259
+
+
+##
+##
+#服务器2为： /root/
+[root@localhost ~]# export ENV_PORT=0  &&  export C_FORCE_ROOT="true"  &&  export JOBLIB_MULTIPROCESSING=0  &&  nohup celery worker -A tasks.celery_config -l info -c 1  1>/root/data/yuanz/celery/outputlog 2>/root/data/yuanz/celery/errlog &  
+[1] 59618
+[root@localhost ~]# export ENV_PORT=1  &&  export C_FORCE_ROOT="true"  &&  export JOBLIB_MULTIPROCESSING=0  &&  nohup celery worker -A tasks.celery_config -l info -c 1  1>/root/data/yuanz/celery/outputlog 2>/root/data/yuanz/celery/errlog & 
+[2] 59763
+[root@localhost ~]# export ENV_PORT=2  &&  export C_FORCE_ROOT="true"  &&  export JOBLIB_MULTIPROCESSING=0  &&  nohup celery worker -A tasks.celery_config -l info -c 1  1>/root/data/yuanz/celery/outputlog 2>/root/data/yuanz/celery/errlog &  
+[3] 59881
+[root@localhost ~]# export ENV_PORT=3  &&  export C_FORCE_ROOT="true"  &&  export JOBLIB_MULTIPROCESSING=0  &&  nohup celery worker -A tasks.celery_config -l info -c 1  1>/root/data/yuanz/celery/outputlog 2>/root/data/yuanz/celery/errlog & 
+[4] 59994
+[root@localhost ~]# nohup python3 tornado_server.py --port=5000 --log_file_prefix=./logs/5000.log --log_rotate_mode=time --log_rotate_when=H --log_rotate_interval=1  1>/root/data/yuanz/tornado/outputlog 2>/root/data/yuanz/tornado/errlog &
+[5] 60091
+
+

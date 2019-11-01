@@ -1,0 +1,24 @@
+create table zhaoqing(
+appid varchar(20),
+appkey varchar(128),
+examid varchar(128) not null primary key,
+sickname varchar(10),
+sickage varchar(10),
+sicksex varchar(10),
+sicksource varchar(200),
+notestr varchar(500),
+fundusimage varchar(200),
+abnormal varchar(300),
+aitime varchar(300),
+version varchar(20),
+reportpath varchar(200),
+reportid varchar(200),
+time1 varchar(30),
+time2 varchar(30),
+status int(10),
+curestatus varchar(200),
+eye varchar(200)
+) character set = utf8; 
+
+[{'vessel_analysis': True, 'length_normal_mean': 2.13, 'density_normal_mean': '14.98%', 'diameter_normal_mean': 0.19, 'a-length_compare': '2.13±1.029', 'a-density_compare': '14.98%±4.23%', 'a-diameter_compare': '0.19±0.0523', 'a-normal_length_histogram': './template/vessel_normal/length_normal.jpg', 'a-normal_diameter_histogram': './template/vessel_normal/diameter_normal.jpg', 'status': 0, 'output_images': {'macular_image': './results/20190704143045_1562221845.1320138/macular/1562221845.1320138.jpg', 'exudation_image': './results/20190704143045_1562221845.1320138/lesion/exu_1562221845.1320138.jpg', 'exudation_histogram': './results/20190704143045_1562221845.1320138/lesion/exu_plot1562221845.1320138.jpg', 'bleed_image': './results/20190704143045_1562221845.1320138/lesion/hem_1562221845.1320138.jpg', 'bleed_histogram': './results/20190704143045_1562221845.1320138/lesion/hem_plot1562221845.1320138.jpg', 'retinal_vessel_image': './results/20190704143045_1562221845.1320138/vessel/1562221845.1320138.png', 'quadrant_segmentation_image': './results/20190704143045_1562221845.1320138/vesselAnalysis/qua.jpg', 'a-patient_length_histogram': './results/20190704143045_1562221845.1320138/vesselAnalysis/length.jpg', 'a-patient_diameter_histogram': './results/20190704143045_1562221845.1320138/vesselAnalysis/diameter.jpg'}, 'patient-image': '/home/pic/1562221845.1320138.jpg', 'report-time': '20190704143045', 'eye': '右眼', 'disc_diameter': '133.93', 'distance': '超过', 'macular_center_coordinate': '(1282, 1248)', 'angle': '15.46', 'standard': '符合', 'exudation': '无', '1-exudation': '-', 'bleed': '有', '1-bleed': '3.68', 'DR_prob': '77.78%', 'dr': '有', 'stage': '4', 'level1_prob': '66.04%', '2-length': '3.34', '2-length_compare': '+1.21', '2-diameter': '0.1', '2-diameter_compare': '-0.09', '2-density': '1.20%', '2-density_compare': '-13.78%', 'a-length': '3.34±0.0', 'a-density': '1.20%', 'vessel-point': '3.8', 'vessel-quality': '差', 'a-diameter': '0.1±0.0', 'patient-id': '关注下', 'report-id': '14_0', 'report_path': './results/20190704143045_1562221845.1320138/report.pdf'}]
+
