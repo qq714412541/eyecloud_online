@@ -1,0 +1,18 @@
+{
+    "eyecloud":{
+        "host": "172.18.8.139",
+        "port": 3306,
+        "database": "mysql",
+        "user": "root",
+        "password": "qq714412541"
+    },
+
+    "zhaoqing":{
+        "host": "172.18.8.139",
+        "port": 3306,
+        "database": "test",
+        "user": "root",
+        "password": "qq714412541"
+    }
+
+}

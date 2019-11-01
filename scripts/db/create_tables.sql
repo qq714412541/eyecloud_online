@@ -1,0 +1,25 @@
+USE eyeCloudAlgo;
+DROP TABLE IF EXISTS appTable;
+
+CREATE TABLE appTable (
+    id SERIAL PRIMARY KEY,
+    appId INTEGER UNIQUE NOT NULL,
+    appKey CHAR(32) NOT NULL,
+    createdTime TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    modifiedTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE zhaoqing(
+    appId VARCHAR(20),
+    appKey VARCHAR(128),
+    examId VARCHAR(128) NOT NULL PRIMARY KEY,
+    sickName VARCHAR(10),
+    sickAge VARCHAR(10),
+    sickSex VARCHAR(10),
+    sickSource VARCHAR(200),
+    noteStr VARCHAR(500),
+    zhaoqingTime VARCHAR(30),
+    aiTime VARCHAR(30),
+    status INT(10),
+    dataJson BLOB(4096)
+) CHARACTER SET = utf8;

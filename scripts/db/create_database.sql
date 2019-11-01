@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS eyeCloudAlgo;
+CREATE DATABASE eyeCloudAlgo;

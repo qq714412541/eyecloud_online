@@ -1,0 +1,80 @@
+# -*- coding: utf-8 -*-
+
+from services.encryption import EncrptionService
+from services.base_code import BasecodeService
+import requests, json
+basecode = BasecodeService()
+
+COMMON_HEADERS = {
+    'Content-Type': 'application/json;charset=utf-8'
+}
+POST_EXAM_URL = 'http://172.18.8.142:22222/api/commit/postExam'
+CHECK_EXAM_URL = 'http://172.18.8.142:22222/api/status/mobileFundus'
+FUNDUS_IMAGE_URL = 'http://172.18.8.142:22222/api/commit/fundusImage'
+SURFACE_IMAGE_URL = 'http://172.18.8.142:22222/api/commit/surfaceImage'
+APP_ID = 1
+APP_KEY = 'e10adc3949ba59abbe56e057f20f883e'
+
+def test_post_exam():
+
+    #path = ['./left2.jpg', './left2.jpg']
+    data = {
+        'examId': 15,
+        'sickName': '的撒大苏打',
+        #'sickSource': 'source',
+        #'sickSex':'man',
+        #'sickAge':'12',
+        #'noteStr': 'note',
+        #'image': basecode.enc(path)
+    }
+
+    sign = EncrptionService.sign_data(data, APP_KEY)
+    print(sign)
+
+    request = {
+        'appId': APP_ID,
+        'timeStr': 'sad',
+        'signStr': sign,
+        'data': data
+    }
+    response = requests.post(
+        url=CHECK_EXAM_URL,
+        json=request,
+        headers=COMMON_HEADERS
+    )
+    print(response.text)
+    print(response)
+
+def test_fundus_image():
+    pass
+
+def test_surface_image():
+    pass
+
+
+if __name__ == "__main__":
+    test_post_exam()
+
+from data_access.sqlforZhaoqing import AppZhaoqing
+import datetime
+
+APP_ID = 1
+APP_KEY = 'e10adc3949ba59abbe56e057f20f883e'
+
+exam_data = {
+    'examId': 'ffc693501b334bc6a65d3f9b1c0d7aad11030019',
+    'sickName': '永泽^黄',
+    'sickSource': 'source',
+    'sickSex':'man',
+    'sickAge':'12',
+    'noteStr': 'note',
+}
+
+time_str = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+connect = AppZhaoqing()
+rep = connect.beforesqlZhaoqing(APP_ID, APP_KEY, time_str, exam_data, 0)
+# connect.checkforZhaoqing(exam_data['examId'])
+# 
+print()
+print(rep)
