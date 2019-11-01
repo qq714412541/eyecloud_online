@@ -1,0 +1,13 @@
+{
+  "patch_height": 96,
+  "patch_width": 96,
+  "cornea_height": 256,
+  "cornea_width": 256,
+  "ulcer_height": 432,
+  "ulcer_width": 648,
+  "stride_height": 10,
+  "stride_width": 10,
+  "seg_num": 1,
+  "n_gpus": 1,
+  "batch_size": 64
+}
