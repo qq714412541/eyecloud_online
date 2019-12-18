@@ -13,5 +13,3 @@ bash scripts/start.sh
 ``` bash
 bash scripts/stop.sh
 ```
-还没完成：
-1. 配置nginx反向代理 结果保存的数据库
