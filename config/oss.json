@@ -1,6 +1,6 @@
 {
-    "accessKeyID": "LTAIZOsLduV58VgI",
-    "accessKeySecret": "1n06hOqorAao9Uy0zlTs5CGniCX1sN",
+    "accessKeyID": "##########",
+    "accessKeySecret": "#################",
     "host": "http://oss-cn-shenzhen.aliyuncs.com",
     "bucket": "test0705",
     "downloadPath": "./download",
