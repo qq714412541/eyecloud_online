@@ -19,7 +19,7 @@ class pyc:
 
   def pytomy(self, r,g,response_body):
 
-      con = pymysql.connect(host='10.20.71.67', port=33333, user='root', db='mysql', passwd='qq714142541')
+      con = pymysql.connect(host='10.20.71.67', port=33333, user='root', db='mysql', passwd='')
       mycur = con.cursor()
       #r = "DEMO-00004"
       r=str(r)
