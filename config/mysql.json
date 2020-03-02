@@ -4,7 +4,7 @@
         "port": 3306,
         "database": "mysql",
         "user": "root",
-        "password": "qq714412541"
+        "password": ""
     },
 
     "zhaoqing":{
@@ -12,7 +12,7 @@
         "port": 3306,
         "database": "test",
         "user": "root",
-        "password": "qq714412541"
+        "password": ""
     }
 
 }
