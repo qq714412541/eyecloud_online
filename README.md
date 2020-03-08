@@ -13,6 +13,6 @@
 任务模块，执行调用算法模型生成dict数据或者报告 以及 celery的任务队列服务
 ## template
 报告模板，生成报告时调用
-# ohter
+## other
 nginx配置 数据库服务器等
 
