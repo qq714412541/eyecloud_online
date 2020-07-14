@@ -16,6 +16,6 @@
 ## other
 nginx配置 数据库服务器等
 
-![架构图](架构.png)
+![架构图](frame.png)
 
 
